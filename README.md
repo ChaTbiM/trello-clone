@@ -1,50 +1,22 @@
-# React + TypeScript + Vite
+# Trello Awesomeness
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Development Story
 
-Currently, two official plugins are available:
+created the branch with a vite template then created a new branch to scaffold the app and layout the structure and the tools necessary for the project initially
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- changed the typescript semantic versioning from '^ minor releases' to '~ patch releases' because of a nested dependency '@typescript-eslint/typescript-estree' SUPPORTED TYPESCRIPT VERSIONS: >=4.7.4 <5.6.0
+- I am keeping folder structure very simple as the required functionality is very limited and does not give me enough depth of the domain
+- for the git workflow there would be 3 branches types : feature , chore , bug/hotfix and can be strict on commits using Commitizen ( not used in this repo)
 
-## Expanding the ESLint configuration
+### The great plan
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+before defining the steps , lets define the app scope
+in a nutshell this app is a trello clone but very limited to only one board (one page) and three lists (todo , doing , done) where the user would be able to create , move and edit cards ( latest would be an extra to do it in realtime )
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1 - Show the lists and todos
+2 - create todo inside a list
+3 - edit todos title
+4 - move todo by dragging
+5 - open todo in a popup to edit more details ( description and labels )
+6 - edit todo in realtime ( maybe only title ?)
+7 - work on further features/actions ( dates , checklist, comments , archived , attachments ) ? <== this were organized by priority/importance
