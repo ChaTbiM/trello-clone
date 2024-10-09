@@ -1,13 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from 'react';
+import reactLogo from './assets/react.svg';
+import viteLogo from '/vite.svg';
+import './App.css';
+import { Card } from './components/Card';
 
 function App() {
-	const [count, setCount] = useState(0)
+	const [count, setCount] = useState(0);
+
+	fetch('https://trello.dev/api/v1/')
+		.then((response) => response.json())
+		.then((data) => console.log(data));
 
 	return (
 		<>
+			<Card title={'title'} />
 			<div>
 				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
 					<img src={viteLogo} className="logo" alt="Vite logo" />
@@ -29,7 +35,7 @@ function App() {
 				Click on the Vite and React logos to learn more
 			</p>
 		</>
-	)
+	);
 }
 
-export default App
+export default App;
