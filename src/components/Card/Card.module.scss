@@ -1,0 +1,15 @@
+.container {
+  display: flex;
+  border-radius: 8px;
+  border: solid #172b4dd2 1px;
+  cursor: pointer;
+  padding: 8px 12px 4px;
+  color: #172b4d;
+  width: 272px;
+  background-color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.container:hover {
+  outline: solid #266bebd2 2px;
+}

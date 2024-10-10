@@ -6,11 +6,11 @@ import { Provider } from 'react-redux';
 import store from './store/index.ts';
 
 async function enableMocking() {
-	if (import.meta.env.MODE !== 'development') {
+	if (import.meta.env.MODE === 'production') {
 		return;
 	}
 
-	const { worker } = await import('./mocks/browser');
+	const { worker } = await import('../mocks/browser.ts');
 
 	return worker.start();
 }
