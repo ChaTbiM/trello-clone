@@ -1,35 +1,33 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import styles from './App.module.scss';
+import { List } from './components/List';
+import { useGetBoardQuery } from './services/boardApi';
 
 function App() {
-	const [count, setCount] = useState(0)
+	const { data, error, isLoading } = useGetBoardQuery('');
+
+	if (isLoading) {
+		return <p>Loading...</p>;
+	}
+	if (error) {
+		return <p>Error: this most likely your FAULT -_- </p>;
+	}
+
+	if (!data?.lists?.length) return <p>You are definitely not Productive !</p>;
 
 	return (
-		<>
-			<div>
-				<a href="https://vitejs.dev" target="_blank" rel="noreferrer">
-					<img src={viteLogo} className="logo" alt="Vite logo" />
-				</a>
-				<a href="https://react.dev" target="_blank" rel="noreferrer">
-					<img src={reactLogo} className="logo react" alt="React logo" />
-				</a>
+		<div className={styles.container}>
+			{/* Header */}
+			<div className={styles.header}>
+				<h1>Project Management Board</h1>
 			</div>
-			<h1>Vite + React</h1>
-			<div className="card">
-				<button onClick={() => setCount((count) => count + 1)}>
-					count isss {count}
-				</button>
-				<p>
-					Edit <code>src/App.tsx</code> and save to test HMR
-				</p>
+			{/* Board */}
+			<div className={styles.board}>
+				{data?.lists?.map((list) => {
+					return <List key={list.id} title={list.name} cards={list.cards} />;
+				})}
 			</div>
-			<p className="read-the-docs">
-				Click on the Vite and React logos to learn more
-			</p>
-		</>
-	)
+		</div>
+	);
 }
 
-export default App
+export default App;

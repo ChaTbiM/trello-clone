@@ -1,8 +1,8 @@
 export default {
-  singleQuote: true,
-  semi: true,
-  useTabs: false,
-  tabWidth: 2,
-  trailingComma: 'all',
-  endOfLine: 'auto',
+	singleQuote: true,
+	semi: true,
+	useTabs: false,
+	tabWidth: 2,
+	trailingComma: 'all',
+	endOfLine: 'crlf',
 };

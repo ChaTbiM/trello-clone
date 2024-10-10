@@ -1,18 +1,18 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import { Provider } from 'react-redux'
-import store from './store/index.ts'
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
+import App from './App.tsx';
+import './index.css';
+import { Provider } from 'react-redux';
+import store from './store/index.ts';
 
 async function enableMocking() {
-	if (import.meta.env.MODE !== 'development') {
-		return
+	if (import.meta.env.MODE === 'production') {
+		return;
 	}
 
-	const { worker } = await import('./mocks/browser')
+	const { worker } = await import('../mocks/browser.ts');
 
-	return worker.start()
+	return worker.start();
 }
 
 enableMocking().then(() => {
@@ -22,5 +22,5 @@ enableMocking().then(() => {
 				<App />
 			</Provider>
 		</StrictMode>,
-	)
-})
+	);
+});

@@ -1,9 +1,18 @@
-import { configureStore } from '@reduxjs/toolkit'
+import { configureStore } from '@reduxjs/toolkit';
+import { boardApi } from '../services/boardApi';
+import { setupListeners } from '@reduxjs/toolkit/query';
 
 const store = configureStore({
-	reducer: {},
-})
+	reducer: {
+		[boardApi.reducerPath]: boardApi.reducer,
+	},
+	middleware: (getDefaultMiddleware) =>
+		getDefaultMiddleware().concat(boardApi.middleware),
+});
 
-export type RootState = ReturnType<typeof store.getState>
+// this necessary for refetchonFocus/refetchOnReconect ( do not know if I need this but would be useful to use ( still did not define my refetching/caching policy))
+setupListeners(store.dispatch);
 
-export default store
+export type RootState = ReturnType<typeof store.getState>;
+
+export default store;
