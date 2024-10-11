@@ -13,3 +13,12 @@
 .container:hover {
   outline: solid #266bebd2 2px;
 }
+
+.editableTitle {
+  width: 100%;
+  padding: 0;
+  outline: none;
+  border: none;
+  resize: none;
+  min-height: 2rem;
+}

@@ -34,4 +34,4 @@ in a nutshell this app is a trello clone but very limited to only one board (one
 
 - I have been stuck for some time trying to intercept requests with cypress that was already mocked and I FEEL VERY STUPID , I was trying to mock api requests while they are already mocked using MSW , however I have an idea of the solution ( involves env variables ) but could not find info about it easily therefore it is either a wrong solution or a complicated/hacky solution that I would rather avoid
 
-- I started to write cypress totally in typescript but seems an overkill maybe ? from experience it does have a rough setup to start with THEREFORE I am converting back to JS for cypress testing
+- I started to write cypress totally in typescript but seems an overkill maybe ? from experience it does have a steep curve to start with THEREFORE I am converting back to JS for cypress testing

@@ -15,3 +15,56 @@
   text-transform: capitalize;
   font-weight: 400px;
 }
+
+.initiateCreateCardButton,
+.addCardButton,
+.addCardButtonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  border: none;
+  color: #44546f;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+.initiateCreateCardButton:hover {
+  background-color: #44546f80;
+}
+
+.initiateCreateCardButtonImg,
+.addCardImg {
+  max-width: 22px;
+  max-height: 22px;
+}
+
+.addCardButton {
+  flex-basis: content;
+  margin-top: 0;
+  background-color: #0c66e4;
+  color: #fff;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.addCardButton:hover {
+  background-color: #05367acc;
+}
+
+.addCardCloseButton {
+  display: flex;
+  outline: none;
+  border: none;
+  align-self: stretch;
+  align-items: center;
+  margin-left: 0.5rem;
+  cursor: pointer;
+}
+
+.addCardCloseButton:hover {
+  background-color: #091e4224;
+  outline: none;
+  border: none;
+}

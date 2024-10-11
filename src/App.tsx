@@ -23,7 +23,14 @@ function App() {
 			{/* Board */}
 			<div className={styles.board}>
 				{data?.lists?.map((list) => {
-					return <List key={list.id} title={list.name} cards={list.cards} />;
+					return (
+						<List
+							key={list.id}
+							id={list.id}
+							title={list.name}
+							cards={list.cards}
+						/>
+					);
 				})}
 			</div>
 		</div>

@@ -7,7 +7,7 @@ const projectBoard = {
 	updatedAt: '2024-10-08T12:30:00Z',
 	lists: [
 		{
-			id: 'list-1',
+			id: 'EuQktZvAr9',
 			name: 'To-Do',
 			position: 1,
 			cards: [
@@ -61,7 +61,7 @@ const projectBoard = {
 			],
 		},
 		{
-			id: 'list-2',
+			id: 'WFLThPFZHy',
 			name: 'Doing',
 			position: 2,
 			cards: [
@@ -103,7 +103,7 @@ const projectBoard = {
 			],
 		},
 		{
-			id: 'list-3',
+			id: 'n_TJt4-3w8',
 			name: 'Done',
 			position: 3,
 			cards: [
