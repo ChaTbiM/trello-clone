@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { boardApi } from '../services/boardApi';
 import { setupListeners } from '@reduxjs/toolkit/query';
+import boardReducer from './boardSlice';
 
 const store = configureStore({
 	reducer: {
 		[boardApi.reducerPath]: boardApi.reducer,
+		board: boardReducer,
 	},
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware().concat(boardApi.middleware),

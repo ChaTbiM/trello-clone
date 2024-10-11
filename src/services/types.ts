@@ -17,7 +17,7 @@ export type ChecklistItem = {
 	isChecked: boolean;
 };
 
-export type Todo = {
+export type Card = {
 	id: string;
 	title: string;
 	description: string;
@@ -33,7 +33,7 @@ export type List = {
 	id: string;
 	name: string;
 	position: number;
-	cards: Todo[];
+	cards: Card[];
 };
 
 export type ProjectBoard = {
