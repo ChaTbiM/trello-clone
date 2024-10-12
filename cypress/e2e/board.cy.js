@@ -179,4 +179,7 @@ describe('Project Management Board E2e', () => {
 		cy.getByCy('frontCard.title.editable').should('not.exist');
 		cy.getByCy('card.title').should('contain', initialTitle);
 	});
+
+	// Regarding the test for the drag and drop feature , it should not be tested in this app because it relies on an external library ( react-beautiful-dnd) and it's already covered by their test.
+	// https://github.com/atlassian/react-beautiful-dnd/blob/master/cypress/integration/move-between-lists.spec.js
 });
