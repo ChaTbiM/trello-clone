@@ -8,10 +8,12 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import {
 	initiateCardCreation,
+	initiateCardUpdating,
 	terminateCardCreation,
 	updateCreatedCardTitle,
 } from '../../store/boardSlice';
 import { useCreateCardMutation } from '../../services/boardApi';
+import FrontCard from '../Card/FrontCard';
 
 const List = ({ id, title, cards }) => {
 	const dispatch = useDispatch();
@@ -20,6 +22,12 @@ const List = ({ id, title, cards }) => {
 	const isAddingCardInitiated =
 		id === cardCreationState?.listId &&
 		cardCreationState?.hasInitiatedCardCreation;
+
+	const cardUpdateState = useSelector((state) => state.board.cardUpdating);
+	const cardUpdatedTitle = cardUpdateState?.cardTitle;
+	const cardToUpdateId = cardUpdateState?.cardId;
+	const isUpdatingCard =
+		cardToUpdateId && cardUpdateState?.hasInitiatedCardUpdating;
 
 	const [createCardRequest, { error }] = useCreateCardMutation();
 	const triggerInitCardCreation = () =>
@@ -50,19 +58,42 @@ const List = ({ id, title, cards }) => {
 		createCardRequest({ listId: id, title: createdCardTitle });
 	};
 
-	// basic error handling ( this should be handled through ui not just alert)
+	// basic error handling ( this should be handled through ui not alert)
 	if (error?.data || error?.status) {
 		console.log({ error });
 		alert('An error occurred while creating the card. Please try again later.');
 	}
+
+	const triggerUpdateCardTitle = (cardId, currentCardTitle) => {
+		dispatch(initiateCardUpdating({ cardId, cardTitle: currentCardTitle }));
+	};
 
 	return (
 		<div data-cy="list.container" className={styles.container}>
 			<h4 data-cy="list.title" className={styles.title}>
 				{title}
 			</h4>
-			{cards?.map((todo) => {
-				return <Card key={todo.id} title={todo.title} isEditable={false} />;
+			{cards?.map((card) => {
+				if (cardToUpdateId === card.id && isUpdatingCard) {
+					return (
+						<div key={`${card.id}-container`} style={{ position: 'relative' }}>
+							<Card
+								key={`${card.id}-card`}
+								title={cardUpdatedTitle}
+								isEditable={false}
+							/>
+							<FrontCard key={`${card.id}-front`} title={cardUpdatedTitle} />
+						</div>
+					);
+				}
+				return (
+					<Card
+						key={card.id}
+						title={card.title}
+						isEditable={false}
+						onEditClick={() => triggerUpdateCardTitle(card.id, card.title)}
+					/>
+				);
 			})}
 			{isAddingCardInitiated && (
 				<Card

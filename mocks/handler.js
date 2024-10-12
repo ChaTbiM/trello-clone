@@ -29,4 +29,23 @@ export const handlers = [
 			return HttpResponse.json('Card Created Successfully', { status: 201 });
 		},
 	),
+	http.put(
+		'https://trello.dev/api/v1/card/:id/',
+		async ({ request, params }) => {
+			const { id } = params;
+			console.log({ id });
+			const { title } = await request.json();
+
+			// straightforward update to the data
+			data.lists.forEach((list) => {
+				list.cards.forEach((card) => {
+					if (card.id === id) {
+						card.title = title;
+					}
+				});
+			});
+
+			return HttpResponse.json('Card Updated Successfully', { status: 204 });
+		},
+	),
 ];

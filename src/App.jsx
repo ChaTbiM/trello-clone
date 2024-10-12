@@ -1,9 +1,13 @@
+import { useSelector } from 'react-redux';
 import styles from './App.module.scss';
 import { List } from './components/List';
 import { useGetBoardQuery } from './services/boardApi';
 
 function App() {
 	const { data, error, isLoading } = useGetBoardQuery('');
+	const { hasInitiatedCardUpdating } = useSelector(
+		(state) => state.board.cardUpdating,
+	);
 
 	if (isLoading) {
 		return <p>Loading...</p>;
@@ -16,6 +20,7 @@ function App() {
 
 	return (
 		<div className={styles.container}>
+			{hasInitiatedCardUpdating && <div className={styles.overlay} />}
 			{/* Header */}
 			<div className={styles.header}>
 				<h1>Project Management Board</h1>

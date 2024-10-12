@@ -35,3 +35,7 @@ in a nutshell this app is a trello clone but very limited to only one board (one
 - I have been stuck for some time trying to intercept requests with cypress that was already mocked and I FEEL VERY STUPID , I was trying to mock api requests while they are already mocked using MSW , however I have an idea of the solution ( involves env variables ) but could not find info about it easily therefore it is either a wrong solution or a complicated/hacky solution that I would rather avoid
 
 - I started to write cypress totally in typescript but seems an overkill maybe ? from experience it does have a steep curve to start with THEREFORE I am converting back to JS for cypress testing
+
+- !IMPORTANT this is a note and a question to any reader , most of the times I find myself using my mental capacity more to build some logic I ll be able to navigate and hold some ideas in my mind but still wondering if there is a way to express these complex models in other form ( I am thinking in the direction of state machines ) , please let me know your way/opinion on this
+
+- at this point I am aware that there is some ui units/components duplications however I choose to discover these while progressing instead of thinking them upfront and end up overthinking and over engineering

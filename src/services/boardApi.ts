@@ -22,7 +22,19 @@ export const boardApi = createApi({
 			}),
 			invalidatesTags: ['Board'],
 		}),
+		updateCard: builder.mutation({
+			query: ({ cardId, title }) => ({
+				method: 'PUT',
+				url: `/card/${cardId}/`,
+				body: { title },
+			}),
+			invalidatesTags: ['Board'],
+		}),
 	}),
 });
 
-export const { useGetBoardQuery, useCreateCardMutation } = boardApi;
+export const {
+	useGetBoardQuery,
+	useCreateCardMutation,
+	useUpdateCardMutation,
+} = boardApi;

@@ -1,5 +1,7 @@
 .container {
   display: flex;
+  align-items: center;
+  justify-content: space-between;
   border-radius: 8px;
   border: solid #172b4dd2 1px;
   cursor: pointer;
@@ -8,6 +10,10 @@
   width: 272px;
   background-color: #fff;
   margin-bottom: 0.5rem;
+
+  &:hover .editCardButton {
+    visibility: visible;
+  }
 }
 
 .container:hover {
@@ -21,4 +27,25 @@
   border: none;
   resize: none;
   min-height: 2rem;
+}
+
+.editCardButton {
+  visibility: hidden;
+  outline: none;
+  border: none;
+  align-self: stretch;
+  align-items: center;
+  margin-left: 0.5rem;
+  cursor: pointer;
+  background-color: transparent;
+  border-radius: 4px;
+}
+
+.editCardButton:hover {
+  background-color: #091e4224;
+}
+
+.editCardImg {
+  width: 0.9rem;
+  height: 0.9rem;
 }
