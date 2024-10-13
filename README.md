@@ -1,5 +1,17 @@
 # Trello Awesomeness
 
+## Running Instruction
+
+1- clone the repo
+
+2- `npm install`
+
+To run development server : `npm run dev`
+
+To run headless cypress tests : `npm run test`
+
+To run cypress test through browser use this : `npx cypress open` <-- please do not choose electron as the mocking service wont work ( MSW )
+
 ## Development Story
 
 created the branch with a vite template then created a new branch to scaffold the app and layout the structure and the tools necessary for the project initially
@@ -13,13 +25,19 @@ created the branch with a vite template then created a new branch to scaffold th
 before defining the steps , lets define the app scope
 in a nutshell this app is a trello clone but very limited to only one board (one page) and three lists (todo , doing , done) where the user would be able to create , move and edit cards ( latest would be an extra to do it in realtime )
 
-1 - Show the lists and cards
-2 - create todo inside a list
-3 - edit cards title
-4 - move todo by dragging
-5 - open todo in a popup to edit more details ( description and labels )
-6 - edit todo in realtime ( maybe only title ?)
-7 - work on further features/actions ( dates , checklist, comments , archived , attachments ) ? <== this were organized by priority/importance
+1- Show the lists and cards ✅
+
+2- create todo inside a list ✅
+
+3- edit cards title ✅
+
+4- move todo by dragging ✅
+
+5- open todo in a popup to edit more details ( description and labels ) ⭕
+
+6- edit todo in realtime ( maybe only title ?) ⭕
+
+7- work on further features/actions ( dates , checklist, comments , archived , attachments ) ? <== this were organized by priority/importance ⭕
 
 ### Notes and Progress
 
@@ -39,3 +57,24 @@ in a nutshell this app is a trello clone but very limited to only one board (one
 - !IMPORTANT this is a note and a question to any reader , most of the times I find myself using my mental capacity more to build some logic I ll be able to navigate and hold some ideas in my mind but still wondering if there is a way to express these complex models in other form ( I am thinking in the direction of state machines ) , please let me know your way/opinion on this
 
 - at this point I am aware that there is some ui units/components duplications however I choose to discover these while progressing instead of thinking them upfront and end up overthinking and over engineering
+
+- OK OK , I am gonna admit it !... currently the app is coupled , state/store is coupled with the components ( the advantage here is to avoid prop drilling --- most likely this is the best because the components are not needed elsewhere the app / this is not a micro frontend / does not use react native or mobile app ) ==> Solution to refactor and introduce a new layer that separates the dumb components from smart components ( the downside of this is solution is PROP DRILLING which means passing a lot of props all over app , the advantage -- cant see it currently ? )
+
+# Conclusion
+
+I know I am not able to finish the requirements and I am not gonna find excuses but as a reminder for future self I did underestimate the requirements took me 2 days to take a look at trello and start and then I realized there so much work to do
+in terms of complexity it is straightforward however there is a load of tasks to be done on the 7th task and I was gonna leave the realtime function the last one
+
+I might not have demonstrated my skills fully on this app but by decomposing the frontend skills as follows
+
+- pixel perfect ,responsive design and sleek ui : I have a live example of that https://stiftelsenfunka.org/
+- realtime functionality : I have made a small app that uses socket.io to build a small chat system for design company https://github.com/ChaTbiM/hayday-staging-web
+- project structure : this something I usually care about and have experienced multiple as shown below ( first 2 are from my side projects instagram clone and hayday staging , the third one is from the production app I worked on ) https://github.com/ChaTbiM/instagramClone / https://github.com/ChaTbiM/hayday-staging-web
+
+![alt text](image.png)
+
+![alt text](image-1.png)
+
+![alt text](image-2.png)
+
+THANK YOU FOR TAKING THE TIME TO GO THROUGH THE DOCUMENT 😄
